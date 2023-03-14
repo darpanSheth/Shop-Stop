@@ -1,0 +1,39 @@
+<h2>We have below 4 products in stock at the moment</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Details</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of Products">
+            <th scope="row">{{p.productId}}</th>
+            <td>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src={{p.filename}} alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{p.name}}</h5>
+            <p class="card-text">{{p.description}}</p>
+            </div>
+            </div>
+            </td>
+            <td>${{p.price}}</td>
+            <td>
+            <button class="snipcart-add-item"
+            [attr.data-item-id]="p.productId"
+            [attr.data-item-price]="p.price"
+            [attr.data-item-description]="p.description"
+            [attr.data-item-image]="p.filename"
+            [attr.data-item-name]="p.name">
+                Add to cart
+            </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
